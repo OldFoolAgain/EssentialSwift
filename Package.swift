@@ -21,8 +21,5 @@ let package = Package(
         .target(
             name: "EssentialSwift",
             dependencies: []),
-        .testTarget(
-            name: "EssentialSwiftTests",
-            dependencies: ["EssentialSwift"]),
     ]
 )
