@@ -3,7 +3,7 @@
 import Foundation
 
 extension Data {
-    func array<T>(type: T.Type) -> [T] where T: ExpressibleByIntegerLiteral {
+    public func array<T>(type: T.Type) -> [T] where T: ExpressibleByIntegerLiteral {
         
         let arraysize = self.count / MemoryLayout<T>.stride
         var array = Array<T>(repeating: 0, count: arraysize)
@@ -16,7 +16,7 @@ extension Data {
     /// - Parameters:
     ///     - offset: The offset into the data
     /// - Returns: the value requested, or nil if insufficient data
-    func extract<T:FixedWidthInteger>(type:T.Type ,offset:Int)  ->T?{
+    public func extract<T:FixedWidthInteger>(type:T.Type ,offset:Int)  ->T?{
         guard offset+MemoryLayout<T>.size <= self.count else {
             return nil
         }
@@ -25,52 +25,52 @@ extension Data {
         }
     }
     
-    var uint8:UInt8? {
+    public var uint8:UInt8? {
         return self.withUnsafeBytes { ptr in
             ptr.loadUnaligned(as: UInt8.self)
         }
     }
-    var int8:Int8? {
+    public var int8:Int8? {
         return self.withUnsafeBytes { ptr in
             ptr.loadUnaligned(as: Int8.self)
         }
     }
-    var uint16:UInt16? {
+    public var uint16:UInt16? {
         return self.withUnsafeBytes { ptr in
             ptr.loadUnaligned(as: UInt16.self)
         }
     }
-    var int16:Int16? {
+    public var int16:Int16? {
         return self.withUnsafeBytes { ptr in
             ptr.loadUnaligned(as: Int16.self)
         }
     }
-    var uint32:UInt32? {
+    public var uint32:UInt32? {
         return self.withUnsafeBytes { ptr in
             ptr.loadUnaligned(as: UInt32.self)
         }
     }
-    var int32:Int32? {
+    public var int32:Int32? {
         return self.withUnsafeBytes { ptr in
             ptr.loadUnaligned(as: Int32.self)
         }
     }
-    var uint64:UInt64? {
+    public var uint64:UInt64? {
         return self.withUnsafeBytes { ptr in
             ptr.loadUnaligned(as: UInt64.self)
         }
     }
-    var int64:Int64? {
+    public var int64:Int64? {
         return self.withUnsafeBytes { ptr in
             ptr.loadUnaligned(as: Int64.self)
         }
     }
-    var uint:UInt? {
+    public var uint:UInt? {
         return self.withUnsafeBytes { ptr in
             ptr.loadUnaligned(as: UInt.self)
         }
     }
-    var int:Int? {
+    public var int:Int? {
         return self.withUnsafeBytes { ptr in
             ptr.loadUnaligned(as: Int.self)
         }

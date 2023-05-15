@@ -12,7 +12,7 @@ enum FileError {
 
 @available(macOS 13.0, *)
 extension FileError : LocalizedError {
-    var localizedDescription:String {
+    public var localizedDescription:String {
         switch (self) {
         case .open(let url,_):
             return "Unable to open: \(url?.path() ?? "unspecified")"
@@ -26,7 +26,7 @@ extension FileError : LocalizedError {
             return "Unknown file error: \(url?.path() ?? "unspecified")"
         }
     }
-    var errorDescription: String? {
+    public var errorDescription: String? {
         switch (self) {
         case .open(let url,_):
             return "Unable to open: \(url?.path() ?? "unspecified")"
@@ -40,7 +40,7 @@ extension FileError : LocalizedError {
             return "Unknown file error: \(url?.path() ?? "unspecified")"
         }
     }
-    var failureReason: String? {
+    public var failureReason: String? {
         switch (self) {
         case .open(_,let reason):
             return "\(reason ?? "unspecified")"

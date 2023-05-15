@@ -8,14 +8,14 @@ protocol CustomDataAccessible {
 
 extension BinaryInteger  {
     /// Obtain the data representation of the value
-    var data: Data {
+    public var data: Data {
         let data = withUnsafeBytes(of: self) { Data($0) }
         return data
     }
 }
 extension FloatingPoint  {
     /// Obtain the data representation of the value
-    var data: Data {
+    public var data: Data {
         let data = withUnsafeBytes(of: self) { Data($0) }
         return data
     }
@@ -23,16 +23,16 @@ extension FloatingPoint  {
 
 extension Array where Element:FixedWidthInteger {
     /// Obtain the data representation of the array
-    var data:Data {
+    public var data:Data {
        return self.withUnsafeBufferPointer {Data(buffer: $0)}
     }
 }
 
 extension String {
-    var data:Data {
+    public var data:Data {
         return self.data(using: .ascii) ?? Data()
     }
-    func fixedData( size:Int) ->Data {
+    public func fixedData( size:Int) ->Data {
         guard size > 0 else {
             return Data()
         }
