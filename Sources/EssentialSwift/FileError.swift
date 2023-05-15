@@ -2,7 +2,7 @@
 
 import Foundation
 
-enum FileError {
+public enum FileError {
     case open(url:URL?,reason:String?)
     case create(url:URL?,reason:String?)
     case invalid(url:URL?,reason:String?)
