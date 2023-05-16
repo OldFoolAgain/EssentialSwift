@@ -15,29 +15,29 @@ extension FileError : LocalizedError {
     public var localizedDescription:String {
         switch (self) {
         case .open(let url,_):
-            return "Unable to open: \(url?.path() ?? "unspecified")"
+            return "Unable to open: \(url?.path ?? "unspecified")"
         case .create(let url,_):
-            return "Unable to create: \(url?.path() ?? "unspecified")"
+            return "Unable to create: \(url?.path ?? "unspecified")"
         case .invalid(let url,_):
-            return "Invalid file: \(url?.path() ?? "unspecified")"
+            return "Invalid file: \(url?.path ?? "unspecified")"
         case .size(let url,_,_):
-            return "Invalid size for file: \(url?.path() ?? "unspecified") "
+            return "Invalid size for file: \(url?.path ?? "unspecified") "
         case .unknown(let url,_):
-            return "Unknown file error: \(url?.path() ?? "unspecified")"
+            return "Unknown file error: \(url?.path ?? "unspecified")"
         }
     }
     public var errorDescription: String? {
         switch (self) {
         case .open(let url,_):
-            return "Unable to open: \(url?.path() ?? "unspecified")"
+            return "Unable to open: \(url?.path ?? "unspecified")"
         case .create(let url,_):
-            return "Unable to create: \(url?.path() ?? "unspecified")"
+            return "Unable to create: \(url?.path ?? "unspecified")"
         case .invalid(let url,_):
-            return "Invalid file: \(url?.path() ?? "unspecified")"
+            return "Invalid file: \(url?.path ?? "unspecified")"
         case .size(let url,_,_):
-            return "Invalid size for file: \(url?.path() ?? "unspecified") "
+            return "Invalid size for file: \(url?.path ?? "unspecified") "
         case .unknown(let url,_):
-            return "Unknown file error: \(url?.path() ?? "unspecified")"
+            return "Unknown file error: \(url?.path ?? "unspecified")"
         }
     }
     public var failureReason: String? {
