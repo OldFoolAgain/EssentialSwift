@@ -3,7 +3,7 @@
 import Foundation
 
 extension String {
-    init(asciiData:Data) {
+    public init(asciiData:Data) {
         self.init()
         let temp = String(data:data,encoding: .ascii)
         if temp != nil {
